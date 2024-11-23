@@ -119,7 +119,7 @@ function tick() {
 
   // 킥 사운드
   if (kickToggle.checked && (step === 0 || step === 8)) {
-      kickSynth.triggerAttackRelease("C1", "32n");
+      kickSynth.triggerAttackRelease("C1", "32n", undefined, 0.7);
   }
 
   // 4비트 우드 사운드
