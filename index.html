@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhythm Metronome</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="led-grid">
+            <!-- Blue lights (5) -->
+            <div class="row" id="blue-row">
+                <div class="led blue" data-step="0"></div>
+                <div class="led" data-step="1"></div>
+                <div class="led" data-step="2"></div>
+                <div class="led blue" data-step="3"></div>
+                <div class="led" data-step="4"></div>
+                <div class="led" data-step="5"></div>
+                <div class="led blue" data-step="6"></div>
+                <div class="led" data-step="7"></div>
+                <div class="led" data-step="8"></div>
+                <div class="led blue" data-step="9"></div>
+                <div class="led" data-step="10"></div>
+                <div class="led" data-step="11"></div>
+                <div class="led blue" data-step="12"></div>
+                <div class="led" data-step="13"></div>
+                <div class="led" data-step="14"></div>
+                <div class="led" data-step="15"></div>
+            </div>
+            <!-- Red lights (2) -->
+            <div class="row" id="red-row">
+                <div class="led red" data-step="0"></div>
+                <div class="led" data-step="1"></div>
+                <div class="led" data-step="2"></div>
+                <div class="led" data-step="3"></div>
+                <div class="led" data-step="4"></div>
+                <div class="led" data-step="5"></div>
+                <div class="led" data-step="6"></div>
+                <div class="led" data-step="7"></div>
+                <div class="led red" data-step="8"></div>
+                <div class="led" data-step="9"></div>
+                <div class="led" data-step="10"></div>
+                <div class="led" data-step="11"></div>
+                <div class="led" data-step="12"></div>
+                <div class="led" data-step="13"></div>
+                <div class="led" data-step="14"></div>
+                <div class="led" data-step="15"></div>
+            </div>
+            <!-- Green lights (4) -->
+            <div class="row" id="green-row">
+                <div class="led green" data-step="0"></div>
+                <div class="led" data-step="1"></div>
+                <div class="led" data-step="2"></div>
+                <div class="led" data-step="3"></div>
+                <div class="led green" data-step="4"></div>
+                <div class="led" data-step="5"></div>
+                <div class="led" data-step="6"></div>
+                <div class="led" data-step="7"></div>
+                <div class="led green" data-step="8"></div>
+                <div class="led" data-step="9"></div>
+                <div class="led" data-step="10"></div>
+                <div class="led" data-step="11"></div>
+                <div class="led green" data-step="12"></div>
+                <div class="led" data-step="13"></div>
+                <div class="led" data-step="14"></div>
+                <div class="led" data-step="15"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <div class="bpm-controls">
+            <div class="bpm-display">
+                <input type="number" class="bpm-value" value="68" min="40" max="208">
+                <span class="bpm-label">BPM</span>
+            </div>
+            <div class="bpm-adjust">
+                <button class="bpm-button">-</button>
+                <input type="range" class="bpm-slider" min="40" max="208" value="68" step="1">
+                <button class="bpm-button">+</button>
+            </div>
+        </div>
+
+        <div class="rhythm-controls">
+            <button class="rhythm-button" id="full16">16비트 폴리 (전체)</button>
+            <button class="rhythm-button" id="accent16">16비트 폴리 (강세만)</button>
+        </div>
+
+        <div class="sub-control">
+            <label class="kick-toggle">
+                <input type="checkbox" id="kickToggle">
+                <span class="toggle-label">킥</span>
+            </label>
+            <label class="beat4-toggle">
+                <input type="checkbox" id="beat4">
+                <span class="toggle-label">4비트</span>
+            </label>
+        </div>
+        
+
+        <button class="toggle-button">시작</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

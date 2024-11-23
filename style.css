@@ -1,0 +1,270 @@
+:root {
+  --led-blue: #4169e1;
+  --led-red: #ff4444;
+  --led-green: #45a049;
+  --led-gray: #666666;
+  --bg-dark: #1a1a1a;
+  --bg-darker: #141414;
+  --button-color: #2c2c2c;
+  --button-hover: #3c3c3c;
+  --button-active: #45a049;
+  height: 100dvh;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  background-color: var(--bg-dark);
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.grid-container {
+  width: 90%;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.led-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  gap: 0.5rem;
+}
+
+.led {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--bg-dark);
+  border: 2px solid var(--led-gray);
+  transition: all 0.1s ease;
+}
+
+.led.blue {
+  border-color: var(--led-blue);
+}
+
+.led.red {
+  border-color: var(--led-red);
+}
+
+.led.green {
+  border-color: var(--led-green);
+}
+
+.led.active {
+  background-color: var(--led-gray);
+}
+
+.led.blue.active {
+  background-color: var(--led-blue);
+  box-shadow: 0 0 10px var(--led-blue);
+}
+
+.led.red.active {
+  background-color: var(--led-red);
+  box-shadow: 0 0 10px var(--led-red);
+}
+
+.led.green.active {
+  background-color: var(--led-green);
+  box-shadow: 0 0 10px var(--led-green);
+}
+
+.controls {
+  width: 90%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.bpm-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.bpm-display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bpm-value {
+  color: white;
+  font-size: 2rem;
+  width: 80px;
+  background: transparent;
+  border: none;
+  text-align: right;
+  padding: 0;
+}
+
+.bpm-label {
+  color: white;
+  font-size: 2rem;
+}
+
+.bpm-adjust {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.bpm-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  background-color: var(--button-color);
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.bpm-slider {
+  flex: 1;
+  height: 4px;
+  -webkit-appearance: none;
+  background: #333;
+  border-radius: 2px;
+}
+
+.bpm-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--button-color);
+  cursor: pointer;
+  border: 1px solid #444;
+}
+
+.rhythm-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.rhythm-button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  background-color: var(--button-color);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.rhythm-button.active {
+  background-color: var(--button-active);
+}
+
+.sub-control {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.kick-toggle, .beat4-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.kick-toggle input[type="checkbox"],
+.beat4-toggle input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-label {
+  position: relative;
+  padding-left: 35px;
+  color: white;
+  font-size: 1rem;
+  user-select: none;
+  cursor: pointer;
+}
+
+.toggle-label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background-color: var(--button-color);
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.toggle-label::after {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 50%;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform-origin: center;
+  transform: translateY(-65%) rotate(45deg) scale(0);
+  transition: all 0.2s;
+}
+
+input[type="checkbox"]:checked + .toggle-label::before {
+  background-color: var(--button-active);
+}
+
+input[type="checkbox"]:checked + .toggle-label::after {
+  transform: translateY(-65%) rotate(45deg) scale(1);
+}
+
+.toggle-button {
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 25px;
+  background-color: var(--button-color);
+  color: white;
+  cursor: pointer;
+  min-width: 150px;
+  transition: background-color 0.2s;
+}
+
+.toggle-button:hover {
+  background-color: var(--button-hover);
+}
+
+@media (max-width: 768px) {
+  .led {
+      width: 20px;
+      height: 20px;
+  }
+  
+  .rhythm-controls {
+      flex-direction: column;
+  }
+  
+  .sub-control {
+      flex-direction: column;
+      gap: 1rem;
+  }
+}
